@@ -16,4 +16,27 @@ for (let i = 0; i < myGrades.length; i++) {  // Start at i = 0
         }
 
         myAverage = myAverage / myGrades.length;
-        
+
+        console.log("My grade average is " + myAverage);
+
+         // Custom exception class
+         class InvalidGradeError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = 'InvalidGradeError';
+            }
+        }
+        // Function to validate grade
+        function validateGrade(grade) {
+            if (typeof grade !== 'number') {
+                throw new InvalidGradeError('Input is not a number');
+            }
+            if (grade < 0) {
+                throw new InvalidGradeError('Grade cannot be less than 0');
+            }
+            if (grade > 100) {
+                throw new InvalidGradeError('Grade cannot be greater than 100');
+            }
+            return true;
+        }
+         
