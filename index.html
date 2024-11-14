@@ -39,4 +39,24 @@ for (let i = 0; i < myGrades.length; i++) {  // Start at i = 0
             }
             return true;
         }
-         
+          // Test exception handling
+        try {
+            let grade = 85;  // Valid grade
+            validateGrade(grade);
+            console.log("Grade is valid: " + grade);
+
+            grade = 105;  // Invalid grade (greater than 100)
+            validateGrade(grade);
+            console.log("Grade is valid: " + grade);
+        } catch (error) {
+            if (error instanceof InvalidGradeError) {
+                console.error('Caught custom exception: ' + error.message);
+            } else {
+                console.error('An unexpected error occurred: ' + error.message);
+            }
+        }
+        </script>
+        </body>
+        </html>
+
+    
